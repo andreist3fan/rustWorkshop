@@ -6,9 +6,10 @@ fn main() {
     }; // <- The String's owner goes out of scope here, so it gets dropped.
 
     // Try to print `s` here.
+    //println!("s outside = {}", s); // -> error[E0425]: cannot find value `s` in this scope
 
     // Create a String, then move it into a scope and print it. Observe that the String is no longer accessible after the scope ends.
-    // let s = ...
+    let s = "Mama m-a facut sa ma duc la piata";
     {
         // Move `s` into a variable inside the scope
         let inner_s = s;
@@ -27,7 +28,6 @@ fn main() {
         println!("inner_x = {}", inner_x);
     }
     // `x` is still accessible here, try to print it.
-
 
     // Create a String, then clone it and move the clone into a scope and print it. Observe that the String is still accessible after the scope ends.
     // let s = ...
@@ -52,6 +52,7 @@ fn take_ownership(/* ... */) {
 } // <- argument goes out of scope and the String is dropped.
 
 // Write a function that takes ownership of a String, appends a word to it, and returns it. Don’t forget to mark the parameter as mutable, like you do with a variable.
-fn take_ownership_and_give_it_back(/* ... */) /* -> ... */ {
+fn take_ownership_and_give_it_back(/* ... */) /* -> ... */
+{
     // ...
 }
