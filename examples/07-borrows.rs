@@ -1,4 +1,10 @@
 use core::num;
+/*
+
+--- INCOMPLETE, MAY NOT COMPILE ---
+
+
+*/
 
 // 1. Write a function that takes ownership of a String, then counts the number of words in the String and returns the number of words.
 fn take_ownership_and_count(s: String) -> usize {
@@ -41,16 +47,16 @@ fn main() {
     println!("{} has {} words", s, num_words);
 
     // 8. Call `remove_first_word()` with a mutable reference to `s`
-    // remove_first_word(...);
-    // println!("with first word removed: {}", s);
+    remove_first_word(&mut s);
+    println!("with first word removed: {}", s);
 }
 
 // 7. Uncomment the function and try to make it work
-// fn remove_first_word(/* ... */) {
-//     // Ignore implementation details
-//     let words: Vec<&str> = s.split_whitespace().collect();
-//     if let Some(first_word) = words.first() {
-//         let start_index = s.find(first_word).unwrap();
-//         s.drain(..start_index + first_word.len());
-//     }
-// }
+fn remove_first_word(s: &mut String) {
+    // Ignore implementation details
+    let words: Vec<&str> = s.split_whitespace().collect();
+    if let Some(first_word) = words.first() {
+        let start_index = s.find(first_word).unwrap();
+        s.drain(..start_index + first_word.len());
+    }
+}
